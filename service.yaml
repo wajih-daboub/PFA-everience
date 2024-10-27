@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-petclinic
+spec:
+  type: NodePort
+  ports:
+    - port: 8080       # Le port que votre application utilise à l'intérieur du conteneur
+      targetPort: 8080 # Le port sur lequel le conteneur écoute
+      nodePort: 30001   # Le port sur lequel le service sera accessible depuis l'extérieur
+  selector:
+    app: spring-petclinic
